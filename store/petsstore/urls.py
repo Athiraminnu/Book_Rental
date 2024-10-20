@@ -4,4 +4,6 @@ app_name = "library"
 urlpatterns = [
     path('', views.dashboard, name='dashBoard'),
     path('/fiction', views.fiction, name='fictionBooks'),
+    path('/anime', views.anime, name='animeBooks'),
+    path('/horror', views.horror, name='horrorBooks'),
 ]
