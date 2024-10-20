@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Fiction{%endblock%}
+{% block content %}
+<div class="container">
+    <p class="center">FICTION</p>
+    <div class="row">
+        {% for item in fbooks %}
+          <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{{item.img_url}}" class="card-img-top" alt="{{item.name}}">
+                <div class="card-body">
+                    <h5 class="static/img/card-title">{{item.name}}</h5>
+                    <p class="card-text">{{item.desc}}</p>
+                </div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

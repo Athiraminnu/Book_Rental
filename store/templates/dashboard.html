@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Library Dashboard{% endblock %}
+{% block content %}
+<!--    <h2>Welcome to the Dashboard</h2>-->
+<div class="container">
+    <p class="">New Arrivals</p>
+    <div class="row">
+       {% for item in data %}
+          <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{{item.img}}" class="card-img-top" alt="{{item.name}}">
+                <div class="card-body">
+                    <h5 class="static/img/card-title">{{item.name}}</h5>
+                    <p class="card-text">{{item.desc}}</p>
+        <!--            <a href="https://www.google.com/search?cs=0&sca_esv=b6443705119e5022&sca_upv=1&sxsrf=ADLYWIJN8sETa8bNjEIM9yC9JNF4uueb1w:1726555526901&q=The+Martian+(Weir+novel)&source=lnms&fbs=AEQNm0DPvcmG_nCbmwtBO9j6YBzM68ZanC7g01Skprhw5JoufVCiMv-hxC44jt6JduRQysBab-bgQXjPraaWFXMvOy8Kr1OAG3K-aj3De4zf3-LxKqwSLZCPE2ypMfUpdmlfpZvF-Imkf1dmfk2tEl3i4FhIHR9X1ZhjOZquGC4w2muEwecjabAGV6iuucLNMiqqvo3bLmUrEPQu8hsKkiuxqfHFEPjHWQ&sa=X&ved=2ahUKEwiru_bGsMmIAxUz4zgGHUoZCSEQ0pQJegQIDRAB&cshid=1726555677305886&biw=1536&bih=695&dpr=1.25" class="btn btn-primary">Click Here</a>-->
+                </div>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
