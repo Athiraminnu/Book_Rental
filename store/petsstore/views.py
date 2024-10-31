@@ -1,11 +1,17 @@
+from datetime import date, timedelta
+
 from django.contrib import messages
 from django.http import Http404
 from django.shortcuts import render
 from . models import Category, Books
-# Create your views here.
 
 
 def dashboard(request):
+    # currentDate = date.today()
+    # todayDate = currentDate.isoformat()
+    # sixMonths = currentDate - timedelta(days=180)
+    # sixMonthsAgo = sixMonths.isoformat()
+    # book = Books.objects.filter(created=(sixMonthsAgo, todayDate))
     book = Books.objects.all()
     return render(request, "dashboard.html", {'data': book})
 
