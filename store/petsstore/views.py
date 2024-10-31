@@ -2,7 +2,7 @@ from datetime import date, timedelta
 
 from django.contrib import messages
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from . models import Category, Books
 
 
@@ -43,3 +43,7 @@ def horror(request):
         horrorBooks = []
 
     return render(request, 'horror.html', {'hbooks': horrorBooks})
+
+def details(request, id):
+    detail = get_object_or_404(Books, id=id)
+    return render(request, 'bookdetails.html', {'itemdetails': detail})
