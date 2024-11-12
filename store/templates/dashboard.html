@@ -9,7 +9,7 @@
        {% for item in data %}
           <div class="col-sm-4">
             <div class="card" style="width: 18rem;">
-                <img src="{{item.img}}" class="card-img-top" alt="{{item.name}}">
+                <img src="{{ item.img.url }}" class="card-img-top" alt="{{item.name}}">
                 <div class="card-body">
                     <h5 class="static/img/card-title">{{item.name}}</h5>
                     <p class="card-text">{{item.desc}}</p>

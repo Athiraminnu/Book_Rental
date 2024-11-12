@@ -16,6 +16,10 @@ def dashboard(request):
     return render(request, "dashboard.html", {'data': book})
 
 
+def aboutUs(request):
+    return render(request, "about_us.html")
+
+
 def fiction(request):
     try:
         fictionCategory = Category.objects.get(name='FICTION')
