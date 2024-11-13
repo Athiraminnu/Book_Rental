@@ -2,16 +2,21 @@
 {% load static %}
 {% block title %}BookDetail{% endblock %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
+<div class="container my-5 mx-6">
+    <div class="row justify-content-md-center border border-dark py-5">
+        <div class="col col-lg-4">
             <div class="card" style="width: 18rem;">
                 <img src="{{itemdetails.img.url}}" class="card-img-top" alt="{{itemdetails.name}}">
             </div>
         </div>
-        <div class="col">
+        <div class="col col-lg-4">
             <h5 class=>{{itemdetails.name}}</h5>
             <p class="text-justify">{{itemdetails.desc}}</p>
+            <p class="d-flex justify-content-between align-items-center">
+                <span class="card-text">₹{{ itemdetails.price }}</span>
+                <a href="" class="btn btn-primary">Rent</a>
+<!--                <span class="card-text">₹{{ itemdetails.price }}</span>-->
+            </p>
         </div>
     </div>
 </div>
