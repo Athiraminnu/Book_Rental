@@ -7,5 +7,6 @@ urlpatterns = [
     path('fiction', views.fiction, name='fictionBooks'),
     path('anime', views.anime, name='animeBooks'),
     path('horror', views.horror, name='horrorBooks'),
+    path('novels', views.novels, name='novelBooks'),
     path('datails/<int:id>/', views.details, name='booksDetails'),
 ]

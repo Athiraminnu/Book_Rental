@@ -24,26 +24,26 @@
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about">About Us</a>
+                <a class="nav-link" href="/about">About Us</a>
               </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Category</a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="{% url 'library:fictionBooks' %}">Fiction</a></li>
-                      <li><a class="dropdown-item" href="#">Novel</a></li>
+                      <li><a class="dropdown-item" href="{% url 'library:novelBooks' %}">Novel</a></li>
                       <li><a class="dropdown-item" href="{% url 'library:horrorBooks' %}">Horror</a></li>
                       <li><a class="dropdown-item" href="{% url 'library:animeBooks' %}">anime</a></li>
                     </ul>
                   </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
+                <a class="nav-link disabled" href="#" aria-disabled="true">Services</a>
               </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#footer">Contact Us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link disabled" aria-disabled="true">Disabled</a>-->
+<!--              </li>-->
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -62,41 +62,41 @@
         {% endblock %}
 
     </div>
-    <footer class="bg-dark text-white pt-4 fixed-bottom" id="#footer">
-          <div class="container">
+    <footer class="bg-dark text-white pt-4">
+        <div class="container">
             <div class="row">
-              <!-- Footer Column 1 -->
-              <div class="col-lg-4 col-md-6 mb-4 pe-none">
-                <h5>About Us</h5>
-                <p class="small">We are a passionate team dedicated to delivering the best service to our clients. Our mission is to provide high-quality products and services.</p>
-              </div>
-              <!-- Footer Column 2 -->
-              <div class="col-lg-4 col-md-6 mb-4">
-                <h5>Quick Links</h5>
-                <ul class="list-unstyled">
-                  <li><a href="#" class="text-white">Home</a></li>
-                  <li><a href="#" class="text-white">About</a></li>
-                  <li><a href="#" class="text-white">Services</a></li>
-                  <li><a href="#" class="text-white">Contact</a></li>
-                </ul>
-              </div>
-              <!-- Footer Column 3 -->
-              <div class="col-lg-4 col-md-12 mb-4 ">
-                <h5>Contact Us</h5>
-                <ul class="list-unstyled ">
-                  <li><i class="fas fa-map-marker-alt "></i> 123 Street, City, Country</li>
-                  <li><i class="fas fa-phone"></i> +123 456 789</li>
-                  <li><i class="fas fa-envelope"></i> email@example.com</li>
-                </ul>
-              </div>
+                <!-- Footer Column 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>About Us</h5>
+                    <p class="small">We are a passionate team dedicated to delivering the best service to our clients. Our mission is to provide high-quality products and services.</p>
+                </div>
+                <!-- Footer Column 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Home</a></li>
+                        <li><a href="#" class="text-white">About</a></li>
+                        <li><a href="#" class="text-white">Services</a></li>
+                        <li><a href="#" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Footer Column 3 -->
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Street, City, Country</li>
+                        <li><i class="fas fa-phone"></i> +123 456 789</li>
+                        <li><i class="fas fa-envelope"></i> email@example.com</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="row">
-              <div class="col-md-12 text-center">
-                <p class="mb-0">© 2024 Library. All Rights Reserved.</p>
-              </div>
+                <div class="col-md-12 text-center">
+                    <p class="mb-0">© 2024 Library. All Rights Reserved.</p>
+                </div>
             </div>
-          </div>
+        </div>
     </footer>
 
     <script src="{% static 'js/popper.min.js' %}"></script>

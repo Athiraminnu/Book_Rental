@@ -43,10 +43,21 @@ def horror(request):
         horrorCategory = Category.objects.get(name='horror')
         horrorBooks = Books.objects.filter(var=horrorCategory)
     except Category.DoesNotExist:
-        messages.error(request, "Horror category doesnot exist!!!")
+        messages.error(request, "Horror category does not exist!!!")
         horrorBooks = []
 
     return render(request, 'horror.html', {'hbooks': horrorBooks})
+
+
+def novels(request):
+    try:
+        novelCategory = Category.objects.get(name='novels')
+        novelBooks = Books.objects.filter(var=novelCategory)
+    except Category.DoesNotExist:
+        messages.error(request, "Novels category does not exist!!!")
+        novelBooks = []
+    return render(request, 'novels.html', {'nbooks': novelBooks})
+
 
 def details(request, id):
     detail = get_object_or_404(Books, id=id)
