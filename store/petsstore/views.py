@@ -62,3 +62,11 @@ def novels(request):
 def details(request, id):
     detail = get_object_or_404(Books, id=id)
     return render(request, 'bookdetails.html', {'itemdetails': detail})
+
+
+def login(request):
+    return render(request, 'login.html')
+
+
+def logout(request):
+    pass

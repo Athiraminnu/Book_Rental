@@ -9,4 +9,6 @@ urlpatterns = [
     path('horror', views.horror, name='horrorBooks'),
     path('novels', views.novels, name='novelBooks'),
     path('datails/<int:id>/', views.details, name='booksDetails'),
+    path('login', views.login, name='login'),
+    path('logout', views.logout, name='logout'),
 ]
