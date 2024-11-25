@@ -1,8 +1,9 @@
 from datetime import date, timedelta
 
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 from django.http import Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from . models import Category, Books
 
 
@@ -64,7 +65,18 @@ def details(request, id):
     return render(request, 'bookdetails.html', {'itemdetails': detail})
 
 
-def login(request):
+def user_login(request):
+    if request.method == 'POST':
+        userName = request.POST['username']
+        Password = request.POST['password']
+        user = authenticate(request, username=userName, password=Password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, "LOGIN SUCCESS")
+            return redirect('library:dashBoard')
+        else:
+            messages.error(request, "LOGIN FAILED")
+            return redirect('library:login')
     return render(request, 'login.html')
 
 
