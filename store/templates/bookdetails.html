@@ -14,8 +14,7 @@
             <p class="text-justify">{{itemdetails.desc}}</p>
             <p class="d-flex justify-content-between align-items-center">
                 <span class="card-text">₹{{ itemdetails.price }}</span>
-                <a href="" class="btn btn-primary">Rent</a>
-<!--                <span class="card-text">₹{{ itemdetails.price }}</span>-->
+                <a href="{% url 'library:rent' %}" class="btn btn-primary">Rent</a>
             </p>
         </div>
     </div>

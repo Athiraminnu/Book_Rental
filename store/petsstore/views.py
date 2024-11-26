@@ -2,6 +2,7 @@ from datetime import date, timedelta
 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from . models import Category, Books
@@ -80,5 +81,10 @@ def user_login(request):
     return render(request, 'login.html')
 
 
-def logout(request):
+def user_logout(request):
     pass
+
+
+@login_required
+def rent(request):
+    return render(request, 'rent.html')
