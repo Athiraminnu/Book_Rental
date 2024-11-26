@@ -1,7 +1,7 @@
 from datetime import date, timedelta
 
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404, redirect
@@ -82,7 +82,13 @@ def user_login(request):
 
 
 def user_logout(request):
-    pass
+    logout(request)
+    messages.success(request, "Logged Out Sucessfully")
+    return redirect('library:dashBoard')
+
+
+def user_register(request):
+    return render(request, 'register.html')
 
 
 @login_required

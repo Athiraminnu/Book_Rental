@@ -14,9 +14,12 @@
     <div class="mx-5 my-3">
         <input class="btn btn-primary mb-5" type="submit" value="Login">
     </div>
+    <div>
+        <a href="{% url 'library:register' %}" >Register Here</a>
+    </div>
 </form>
 
-    {% if messages %}
+{% if messages %}
     <div class="alert alert-dismissible fade show" role="alert">
         {% for message in messages %}
             <div class="alert alert-{{ message.tags }}">
@@ -28,6 +31,4 @@
         {% endfor %}
     </div>
 {% endif %}
-
-
 {% endblock %}
