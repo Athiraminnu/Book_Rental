@@ -1,5 +1,4 @@
 from datetime import date, timedelta
-
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -94,3 +93,7 @@ def user_register(request):
 @login_required
 def rent(request):
     return render(request, 'rent.html')
+
+
+def viewProfile(request):
+    return render(request, 'profile.html')
