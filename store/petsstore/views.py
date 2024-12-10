@@ -2,6 +2,7 @@ from datetime import date, timedelta
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from . models import Category, Books
@@ -97,3 +98,38 @@ def rent(request):
 
 def viewProfile(request):
     return render(request, 'profile.html')
+
+
+def user_register(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        first_name = request.POST['firstName']
+        last_name = request.POST['lastName']
+        password = request.POST['password']
+        confirm_password = request.POST['confirmPassword']
+
+        # Check if passwords match
+        if password != confirm_password:
+            messages.error(request, "Passwords do not match.")
+            return redirect('library:register')
+
+        # Check if the username already exists
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "Username already taken.")
+            return redirect('library:register')
+        # Create the user
+        try:
+            user = User.objects.create_user(
+                username=username,
+                first_name=first_name,
+                last_name=last_name,
+                password=password
+            )
+            user.save()
+            messages.success(request, "Registration successful. You can now log in.")
+            return redirect('library:login')
+        except Exception as e:
+            messages.error(request, "An error occurred during registration.")
+            print(e)
+            return redirect('library:register')
+    return render(request, 'register.html')

@@ -4,7 +4,8 @@
 {% block content %}
 <div>
     <h3 class="mx-3 my-3">Register</h3>
-    <form action="" method="POST">
+    <form action="{% url 'library:register' %}" method="POST">
+        {% csrf_token %}
         <div class="mx-5 my-3">
             <input class="form-control" type="text" name="username" placeholder="Username" required>
         </div>
