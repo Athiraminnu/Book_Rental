@@ -87,17 +87,17 @@ def user_logout(request):
     return redirect('library:dashBoard')
 
 
-def user_register(request):
-    return render(request, 'register.html')
-
-
 @login_required
 def rent(request):
     return render(request, 'rent.html')
 
 
-def viewProfile(request):
-    return render(request, 'profile.html')
+@login_required
+def viewProfile(request, id):
+    # profile_details = User.objects.filter(user=request.user)
+    # return render(request, 'your_template.html', {'profileDetails': profile_details})
+    profile_details = get_object_or_404(User, id=id)
+    return render(request, 'profile.html', {'profileDetails': profile_details})
 
 
 def user_register(request):

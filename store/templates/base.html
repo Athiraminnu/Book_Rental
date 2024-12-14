@@ -41,25 +41,24 @@
                 <li class="nav-item">
                 <a class="nav-link" href="#footer">Contact Us</a>
               </li>
-<!--              <li class="nav-item">-->
-<!--                <a class="nav-link disabled" aria-disabled="true">Disabled</a>-->
-<!--              </li>-->
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 {% if user.is_authenticated %}
-                </li>
                 <li class="nav-item dropdown position-absolute top-2 end-0">
-                    <a class="nav-link " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                    <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
                     <ul class="dropdown-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'library:profile' %}">Profile</a>
-                            <a class="nav-link" href="{% url 'library:logout' %}">Logout</a>
+                        <li>
+                            {% if profileDetails %}
+                            <a class="dropdown-item" href="{% url 'library:profile' id=user.id %}">Profile</a>
+                            {% endif %}
+                            <a class="dropdown-item" href="{% url 'library:logout' %}">Logout</a>
                         </li>
                     </ul>
-                  </li>
-
+                </li>
                 {% else %}
                     <li class="nav-item position-absolute top-2 end-0">
                     <a class="nav-link" href="{% url 'library:login' %}">Login</a>

@@ -3,4 +3,18 @@
 {% block title %}My Profile{%endblock%}
 {% block content %}
 <h3>My Profile</h3>
+{% if profileDetails %}
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Your Profile</h5>
+      <p class="card-text"><strong>Username:</strong> {{ profileDetails.username }}</p>
+      <p class="card-text"><strong>First Name:</strong> {{ profileDetails.first_name }}</p>
+      <p class="card-text"><strong>Last Name:</strong> {{ profileDetails.last_name }}</p>
+      <a href="#" class="btn btn-primary">Close</a>
+    </div>
+  </div>
+{% else %}
+  <p>No profile details available.</p>
+{% endif %}
+
 {% endblock %}
