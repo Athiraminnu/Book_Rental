@@ -4,13 +4,13 @@
 {% block content %}
 <h3>My Profile</h3>
 {% if profileDetails %}
-  <div class="card mx-5 my-5"  style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Your Profile</h5>
-      <p class="card-text"><strong>Username:</strong> {{ profileDetails.username }}</p>
+  <div class="card mx-5 my-5"  style="width: 28rem; height:20rem;">
+    <div class="card-body ">
+      <h5 class="card-title text-center">Your Profile</h5>
+      <p class="card-text "><strong>Username:</strong> {{ profileDetails.username }}</p>
       <p class="card-text"><strong>First Name:</strong> {{ profileDetails.first_name }}</p>
       <p class="card-text"><strong>Last Name:</strong> {{ profileDetails.last_name }}</p>
-      <a href="#" class="btn btn-primary">Close</a>
+      <p class="card-text"><strong>Email Id:</strong> {{ profileDetails.email }}</p>
     </div>
   </div>
 {% else %}

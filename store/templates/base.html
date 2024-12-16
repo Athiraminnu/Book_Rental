@@ -52,9 +52,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            {% if profileDetails %}
-                            <a class="dropdown-item" href="{% url 'library:profile' id=user.id %}">Profile</a>
-                            {% endif %}
+
+                                <a class="dropdown-item" href="{% url 'library:profile' id=user.id %}">Profile</a>
+
                             <a class="dropdown-item" href="{% url 'library:logout' %}">Logout</a>
                         </li>
                     </ul>
