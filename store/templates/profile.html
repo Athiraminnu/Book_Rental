@@ -11,6 +11,9 @@
       <p class="card-text"><strong>First Name:</strong> {{ profileDetails.first_name }}</p>
       <p class="card-text"><strong>Last Name:</strong> {{ profileDetails.last_name }}</p>
       <p class="card-text"><strong>Email Id:</strong> {{ profileDetails.email }}</p>
+      <div class="text-center mt-3">
+        <a href="{% url 'library:editprofile' %}" class="btn btn-primary">Edit Profile</a>
+      </div>
     </div>
   </div>
 {% else %}

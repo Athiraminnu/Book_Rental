@@ -14,4 +14,5 @@ urlpatterns = [
     path('register', views.user_register, name='register'),
     path('rent', views.rent, name='rent'),
     path('profile/<int:id>/', views.viewProfile, name='profile'),
+    path('editprofile', views.editProfile, name='editprofile'),
 ]

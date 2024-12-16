@@ -2,10 +2,12 @@ from datetime import date, timedelta
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404, redirect
-from . models import Category, Books
+from .forms import EditProfileForm
+from .models import Category, Books
 
 
 def dashboard(request):
@@ -94,10 +96,31 @@ def rent(request):
 
 @login_required
 def viewProfile(request, id):
-    # profile_details = User.objects.filter(user=request.user)
-    # return render(request, 'your_template.html', {'profileDetails': profile_details})
     profile_details = get_object_or_404(User, id=id)
     return render(request, 'profile.html', {'profileDetails': profile_details})
+
+
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
+
+@login_required
+def editProfile(request):
+    if request.method == 'POST':
+        # Bind the form with POST data and associate it with the logged-in user
+        form = EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()  # Save the updated profile
+            messages.success(request, "Profile updated successfully!")
+            return redirect('library:profile', id=request.user.id)
+        else:
+            messages.error(request, "Please correct the errors below.")
+    else:
+        # Initialize the form with the logged-in user's data
+        form = EditProfileForm(instance=request.user)
+
+    # Render the edit profile template with the form
+    return render(request, 'editprofile.html', {'form': form})
 
 
 def user_register(request):
