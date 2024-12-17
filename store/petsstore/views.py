@@ -110,16 +110,14 @@ def editProfile(request):
         # Bind the form with POST data and associate it with the logged-in user
         form = EditProfileForm(request.POST, instance=request.user)
         if form.is_valid():
-            form.save()  # Save the updated profile
+            form.save()
             messages.success(request, "Profile updated successfully!")
             return redirect('library:profile', id=request.user.id)
         else:
             messages.error(request, "Please correct the errors below.")
     else:
-        # Initialize the form with the logged-in user's data
         form = EditProfileForm(instance=request.user)
 
-    # Render the edit profile template with the form
     return render(request, 'editprofile.html', {'form': form})
 
 

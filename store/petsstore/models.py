@@ -1,5 +1,4 @@
 from django.db import models
-from django . urls import reverse
 
 
 class Category(models.Model):
@@ -10,7 +9,6 @@ class Category(models.Model):
         ordering = ('name',)
         verbose_name = 'category'
         verbose_name_plural = 'categories'
-
 
     def __str__(self):
         return self.name
