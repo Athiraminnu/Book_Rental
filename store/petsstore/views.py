@@ -88,7 +88,8 @@ def user_logout(request):
 
 @login_required
 def rent(request):
-
+    if request.method == 'POST':
+        messages.success(request, "Sucessfully Rented")
     return render(request, 'rent.html')
 
 
