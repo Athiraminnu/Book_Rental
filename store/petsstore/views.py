@@ -1,14 +1,11 @@
 from datetime import date, timedelta
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
-from django.http import Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import EditProfileForm
 from .models import Category, Books
-
+from django.contrib.auth.decorators import login_required
 
 def dashboard(request):
     # currentDate = date.today()
@@ -91,6 +88,7 @@ def user_logout(request):
 
 @login_required
 def rent(request):
+
     return render(request, 'rent.html')
 
 
@@ -98,10 +96,6 @@ def rent(request):
 def viewProfile(request, id):
     profile_details = get_object_or_404(User, id=id)
     return render(request, 'profile.html', {'profileDetails': profile_details})
-
-
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 
 
 @login_required
@@ -119,7 +113,6 @@ def editProfile(request):
         form = EditProfileForm(instance=request.user)
 
     return render(request, 'editprofile.html', {'form': form})
-
 
 def user_register(request):
     if request.method == 'POST':
