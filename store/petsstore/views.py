@@ -2,6 +2,7 @@ from datetime import date, timedelta
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import EditProfileForm
 from .models import Category, Books
@@ -14,7 +15,14 @@ def dashboard(request):
     # sixMonthsAgo = sixMonths.isoformat()
     # book = Books.objects.filter(created=(sixMonthsAgo, todayDate))
     book = Books.objects.all()
-    return render(request, "dashboard.html", {'data': book})
+
+    paginator = Paginator(book, 6)  # Show 6 books per page
+
+    # Get the current page number from the request
+    page_number = request.GET.get('page')
+    bookInPage = paginator.get_page(page_number)  # Get the books for the current page
+
+    return render(request, "dashboard.html", {'data': bookInPage})
 
 
 def aboutUs(request):
