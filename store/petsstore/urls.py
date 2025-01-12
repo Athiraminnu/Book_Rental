@@ -15,4 +15,6 @@ urlpatterns = [
     path('rent', views.rent, name='rent'),
     path('profile/<int:id>/', views.viewProfile, name='profile'),
     path('editprofile', views.editProfile, name='editprofile'),
+    path('wishlist', views.wishlist, name='wishlist'),
+    path('cart', views.cart, name='cart'),
 ]
