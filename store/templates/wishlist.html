@@ -3,5 +3,8 @@
 {% block title %}Wish List{% endblock %}
 {% block content %}
 <h3 class="justify-content-center">WishList</h3>
+{% for item in wish %}
+    <p>{{item.name}}</p>
+{% endfor %}
 
 {% endblock %}

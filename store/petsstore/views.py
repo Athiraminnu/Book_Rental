@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import EditProfileForm
-from .models import Category, Books
+from .models import Category, Books, Wishlist
 from django.contrib.auth.decorators import login_required
 
 def dashboard(request):
@@ -158,8 +158,14 @@ def user_register(request):
     return render(request, 'register.html')
 
 
-def wishlist(request):
-    return render(request, 'wishlist.html')
+@login_required
+def wishlist(request, id):
+    addBook = get_object_or_404(Books, id=id)
+    # Get or create the wishlist entry for the logged-in user
+    wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, book=addBook)
+    # Retrieve the entire wishlist for the logged-in user
+    wishlist_items = Wishlist.objects.filter(user=request.user)
+    return render(request, 'wishlist.html', {'wish': wishlist_items})
 
 
 def cart(request):
